@@ -10,7 +10,7 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
       id: json['id'] as int?,
       ownerId: json['owner_id'] as int?,
       tableNumber: json['table_number'] as int?,
-      total: json['total'] as int?,
+      total: (json['total'] as num?)?.toDouble(),
       status: json['status'] as String?,
       createdAt: json['created_at'] == null
           ? null

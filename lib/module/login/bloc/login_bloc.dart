@@ -1,7 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pos_terpadu_bloc/core.dart';
-import '../event/login_event.dart';
-import '../state/login_state.dart';
 
 mixin _BlocLifecycle {
   void initState() {}
@@ -15,8 +13,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> with _BlocLifecycle {
       emit(state.copyWith());
     });
     on<LoginButtonEvent>((event, emit) async {
-      await AuthService().login(email: state.email, password: state.password);
-      Get.offAll(MainNavigationView());
+      bool isLoggedIn = await AuthService()
+          .login(email: state.email, password: state.password);
+      if (isLoggedIn) {
+        Get.offAll(MainNavigationView());
+        return;
+      } else {
+        print("Wrong email or password!");
+      }
       emit(state.copyWith());
     });
   }

@@ -1,8 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core.dart';
 import '../../../model/product/product.dart';
-import '../event/product_form_event.dart';
-import '../state/product_form_state.dart';
 
 mixin _BlocLifecycle {
   void initState() {}

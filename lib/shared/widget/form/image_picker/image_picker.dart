@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pos_terpadu_bloc/core.dart';
 
 class QImagePicker extends StatefulWidget {
   final String label;
@@ -94,24 +95,22 @@ class _QImagePickerState extends State<QImagePicker> {
   }
 
   Future<String> uploadToCloudinary(String filePath) async {
-    String cloudName = "dotz74j1p";
-    String apiKey = "983354314759691";
-
     final formData = FormData.fromMap({
-      'file': MultipartFile.fromBytes(
+      'photo': MultipartFile.fromBytes(
         File(filePath).readAsBytesSync(),
-        filename: "upload.jpg",
+        filename: Uri.file(filePath).pathSegments.last,
       ),
-      'upload_preset': 'yogjjkoh',
-      'api_key': apiKey,
     });
 
     var res = await Dio().post(
-      'https://api.cloudinary.com/v1_1/$cloudName/image/upload',
+      "${GlobalService.baseUrl}/api/upload",
       data: formData,
+      options: Options(headers: {
+        "Authorization": AuthService.token,
+      }),
     );
 
-    String url = res.data["secure_url"];
+    String url = res.data["data"]["url"];
     return url;
   }
 
@@ -133,7 +132,9 @@ class _QImagePickerState extends State<QImagePicker> {
     loading = false;
 
     if (imageUrl != null) {
-      widget.onChanged(imageUrl!);
+      var formattedImageUrl =
+          "storage" + imageUrl!.toString().split("storage").last;
+      widget.onChanged(formattedImageUrl!);
       controller.text = imageUrl!;
     }
     setState(() {});

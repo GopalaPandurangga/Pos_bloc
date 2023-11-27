@@ -5,6 +5,7 @@ abstract class PosDineInEvent {}
 class PosDineInIncrementEvent extends PosDineInEvent {}
 
 class PosDineInGetDataEvent extends PosDineInEvent {}
+class PosDineInCheckoutEvent extends PosDineInEvent {}
 
 class PosDineInIncreaseQtyEvent extends PosDineInEvent {
   PosDineInIncreaseQtyEvent(Product product) {

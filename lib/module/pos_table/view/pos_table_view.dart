@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pos_terpadu_bloc/core.dart';
-import '../../../shared/theme/theme_config.dart';
-import '../../../shared/util/dialog/show_info_dialog.dart';
-import '../../../state_util.dart';
-import '../bloc/pos_table_bloc.dart';
-import '../event/pos_table_event.dart';
-import '../state/pos_table_state.dart';
 import 'package:get_it/get_it.dart';
 
 class PosTableView extends StatefulWidget {

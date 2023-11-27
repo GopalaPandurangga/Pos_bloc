@@ -48,7 +48,7 @@ class OrderService {
     return items;
   }
 
-  Future add(Order item) async {
+  Future<bool> add(Order item) async {
     try {
       // String userId = AuthService.userId ?? '';
 
@@ -73,8 +73,10 @@ class OrderService {
         },
       );
       Map obj = response.data;
+      print(obj);
+      return true;
     } on Exception catch (err) {
-      print(err);
+      return false;
     }
   }
 }

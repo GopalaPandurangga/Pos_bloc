@@ -1,7 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core.dart';
-import '../event/profile_event.dart';
-import '../state/profile_state.dart';
 
 mixin _BlocLifecycle {
   void initState() {}

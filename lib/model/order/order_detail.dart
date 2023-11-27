@@ -10,7 +10,7 @@ class OrderDetail with _$OrderDetail {
     @JsonKey(name: 'order_id') int? orderId,
     @JsonKey(name: 'product_id') int? productId,
     int? quantity,
-    int? price,
+    double? price,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
   }) = _OrderDetail;

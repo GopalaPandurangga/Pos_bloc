@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import '../../../core.dart';
-import '../bloc/product_list_bloc.dart';
-import '../event/product_list_event.dart';
-import '../state/product_list_state.dart';
 
 class ProductListView extends StatefulWidget {
   const ProductListView({Key? key}) : super(key: key);
@@ -82,9 +79,9 @@ class _ProductListViewState extends State<ProductListView> {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: NetworkImage(
-                                    ProductService.baseUrl +
-                                        "/storage/" +
-                                        item.photo!,
+                                    item.photo == null
+                                        ? "https://i.ibb.co/S32HNjD/no-image.jpg"
+                                        : "${ProductService.baseUrl}/${item.photo}",
                                   ),
                                   fit: BoxFit.cover,
                                 ),

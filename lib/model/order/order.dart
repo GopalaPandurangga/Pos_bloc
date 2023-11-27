@@ -11,7 +11,7 @@ class Order with _$Order {
     int? id,
     @JsonKey(name: 'owner_id') int? ownerId,
     @JsonKey(name: 'table_number') int? tableNumber,
-    int? total,
+    double? total,
     String? status,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,

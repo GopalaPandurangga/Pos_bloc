@@ -25,7 +25,7 @@ mixin _$Order {
   int? get ownerId => throw _privateConstructorUsedError;
   @JsonKey(name: 'table_number')
   int? get tableNumber => throw _privateConstructorUsedError;
-  int? get total => throw _privateConstructorUsedError;
+  double? get total => throw _privateConstructorUsedError;
   String? get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $OrderCopyWith<$Res> {
       {int? id,
       @JsonKey(name: 'owner_id') int? ownerId,
       @JsonKey(name: 'table_number') int? tableNumber,
-      int? total,
+      double? total,
       String? status,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
@@ -93,7 +93,7 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
       total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -125,7 +125,7 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
       {int? id,
       @JsonKey(name: 'owner_id') int? ownerId,
       @JsonKey(name: 'table_number') int? tableNumber,
-      int? total,
+      double? total,
       String? status,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
@@ -168,7 +168,7 @@ class __$$OrderImplCopyWithImpl<$Res>
       total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -215,7 +215,7 @@ class _$OrderImpl implements _Order {
   @JsonKey(name: 'table_number')
   final int? tableNumber;
   @override
-  final int? total;
+  final double? total;
   @override
   final String? status;
   @override
@@ -291,7 +291,7 @@ abstract class _Order implements Order {
       {final int? id,
       @JsonKey(name: 'owner_id') final int? ownerId,
       @JsonKey(name: 'table_number') final int? tableNumber,
-      final int? total,
+      final double? total,
       final String? status,
       @JsonKey(name: 'created_at') final DateTime? createdAt,
       @JsonKey(name: 'updated_at') final DateTime? updatedAt,
@@ -309,7 +309,7 @@ abstract class _Order implements Order {
   @JsonKey(name: 'table_number')
   int? get tableNumber;
   @override
-  int? get total;
+  double? get total;
   @override
   String? get status;
   @override

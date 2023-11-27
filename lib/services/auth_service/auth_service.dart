@@ -1,6 +1,3 @@
-import 'package:pos_terpadu_bloc/services/global_service/global_service.dart';
-import 'package:pos_terpadu_bloc/services/local_data_service/local_data_service.dart';
-
 import '../../core.dart';
 import '../../model/user/user.dart';
 
@@ -33,7 +30,16 @@ class AuthService {
       DB.setToken(token!);
 
       print(DB.getToken());
-    } on Exception catch (err) {}
+      return true;
+    } on Exception {
+      return false;
+    }
+  }
+
+  initUser() async {
+    var user = DB.getUser();
+    if (user == null) return;
+    currentUser = User.fromJson(user);
   }
 
   logoutAccount() async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:pos_terpadu_bloc/core.dart';
 import '../../../services/product_service/product_service.dart';
 import '../bloc/pos_dine_in_bloc.dart';
 import '../event/pos_dine_in_event.dart';
@@ -25,6 +26,7 @@ class _PosDineInViewState extends State<PosDineInView> {
     if (GetIt.I.isRegistered<PosDineInBloc>())
       GetIt.I.unregister<PosDineInBloc>();
     GetIt.I.registerSingleton(bloc);
+    bloc.state.tableNumber = widget.tableNumber;
     bloc.initState();
     super.initState();
     bloc.add(PosDineInGetDataEvent());
@@ -41,7 +43,11 @@ class _PosDineInViewState extends State<PosDineInView> {
     return BlocProvider(
       create: (BuildContext context) => bloc,
       child: BlocListener<PosDineInBloc, PosDineInState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if(state.orderSuccess){
+            Get.offAll(MainNavigationView());
+          }
+        },
         child: BlocBuilder<PosDineInBloc, PosDineInState>(
           builder: (context, state) {
             final bloc = context.read<PosDineInBloc>();
@@ -239,7 +245,7 @@ class _PosDineInViewState extends State<PosDineInView> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueGrey,
                 ),
-                onPressed: () {},
+                onPressed: () => bloc.add(PosDineInCheckoutEvent()),
                 child: const Text(
                   "Checkout",
                   style: TextStyle(

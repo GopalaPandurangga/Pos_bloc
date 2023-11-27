@@ -12,7 +12,7 @@ _$OrderDetailImpl _$$OrderDetailImplFromJson(Map<String, dynamic> json) =>
       orderId: json['order_id'] as int?,
       productId: json['product_id'] as int?,
       quantity: json['quantity'] as int?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),

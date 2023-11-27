@@ -26,7 +26,7 @@ mixin _$OrderDetail {
   @JsonKey(name: 'product_id')
   int? get productId => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
@@ -49,7 +49,7 @@ abstract class $OrderDetailCopyWith<$Res> {
       @JsonKey(name: 'order_id') int? orderId,
       @JsonKey(name: 'product_id') int? productId,
       int? quantity,
-      int? price,
+      double? price,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -95,7 +95,7 @@ class _$OrderDetailCopyWithImpl<$Res, $Val extends OrderDetail>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ abstract class _$$OrderDetailImplCopyWith<$Res>
       @JsonKey(name: 'order_id') int? orderId,
       @JsonKey(name: 'product_id') int? productId,
       int? quantity,
-      int? price,
+      double? price,
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'updated_at') DateTime? updatedAt});
 }
@@ -165,7 +165,7 @@ class __$$OrderDetailImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -204,7 +204,7 @@ class _$OrderDetailImpl implements _OrderDetail {
   @override
   final int? quantity;
   @override
-  final int? price;
+  final double? price;
   @override
   @JsonKey(name: 'created_at')
   final DateTime? createdAt;
@@ -260,7 +260,7 @@ abstract class _OrderDetail implements OrderDetail {
           @JsonKey(name: 'order_id') final int? orderId,
           @JsonKey(name: 'product_id') final int? productId,
           final int? quantity,
-          final int? price,
+          final double? price,
           @JsonKey(name: 'created_at') final DateTime? createdAt,
           @JsonKey(name: 'updated_at') final DateTime? updatedAt}) =
       _$OrderDetailImpl;
@@ -279,7 +279,7 @@ abstract class _OrderDetail implements OrderDetail {
   @override
   int? get quantity;
   @override
-  int? get price;
+  double? get price;
   @override
   @JsonKey(name: 'created_at')
   DateTime? get createdAt;

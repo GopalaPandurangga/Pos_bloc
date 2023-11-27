@@ -1,10 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import '../../../core.dart';
-import '../bloc/login_bloc.dart';
-import '../event/login_event.dart';
-import '../state/login_state.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -20,7 +18,13 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     if (GetIt.I.isRegistered<LoginBloc>()) GetIt.I.unregister<LoginBloc>();
     GetIt.I.registerSingleton(bloc);
+
+    if (kDebugMode) {
+      bloc.state.email = "admin@demo.com";
+      bloc.state.password = "123456";
+    }
     bloc.initState();
+
     super.initState();
   }
 
@@ -62,7 +66,7 @@ class _LoginViewState extends State<LoginView> {
               label: "Email",
               validator: Validator.email,
               suffixIcon: Icons.email,
-              value: null,
+              value: state.email,
               onChanged: (value) {
                 state.email = value;
               },
@@ -72,7 +76,7 @@ class _LoginViewState extends State<LoginView> {
               obscure: true,
               validator: Validator.required,
               suffixIcon: Icons.password,
-              value: null,
+              value: state.password,
               onChanged: (value) {
                 state.password = value;
               },

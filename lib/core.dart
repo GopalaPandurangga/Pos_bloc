@@ -51,7 +51,6 @@ export 'package:pos_terpadu_bloc/module/pos_take_away/bloc/pos_take_away_bloc.da
 export 'package:pos_terpadu_bloc/module/pos_take_away/event/pos_take_away_event.dart';
 export 'package:pos_terpadu_bloc/module/pos_take_away/state/pos_take_away_state.dart';
 export 'package:pos_terpadu_bloc/module/pos_take_away/view/pos_take_away_view.dart';
-
 export 'package:pos_terpadu_bloc/module/product_form/bloc/product_form_bloc.dart';
 export 'package:pos_terpadu_bloc/module/product_form/event/product_form_event.dart';
 export 'package:pos_terpadu_bloc/module/product_form/state/product_form_state.dart';
@@ -121,4 +120,3 @@ export 'package:pos_terpadu_bloc/shared/widget/form/time_picker/timepicker.dart'
 export 'package:pos_terpadu_bloc/shared/widget/list/list_view.dart';
 export 'package:pos_terpadu_bloc/shared/widget/typography/heading.dart';
 export 'package:pos_terpadu_bloc/state_util.dart';
-export 'core_package.dart';

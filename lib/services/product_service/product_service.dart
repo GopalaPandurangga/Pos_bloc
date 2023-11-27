@@ -1,10 +1,5 @@
-import 'dart:io';
-
-import 'package:pos_terpadu_bloc/services/global_service/global_service.dart';
-
 import '../../core.dart';
 import '../../model/product/product.dart';
-import '../local_data_service/local_data_service.dart';
 
 class ProductService {
   String endpoint = "products";
@@ -49,18 +44,8 @@ class ProductService {
   //   }
   // }
 
-  Future add(Product item) async {
+  Future<bool> add(Product item) async {
     try {
-      // var formData = FormData.fromMap({
-      //   "owner_id": DB.getUser(),
-      //   'photo': [
-      //     await MultipartFile.fromFile('photo', filename: item.photo),
-      //   ],
-      //   'product_name': item.productName,
-      //   'price': item.price,
-      //   'category': item.category,
-      //   'description': item.description,
-      // });
       var response = await Dio().post(
         '$baseUrl/api/$endpoint',
         options: Options(
@@ -74,7 +59,7 @@ class ProductService {
           },
         ),
         data: {
-          "owner_id": DB.getUser(),
+          "owner_id": AuthService.currentUser?.id,
           "photo": item.photo,
           "product_name": item.productName,
           "price": item.price,
@@ -83,8 +68,9 @@ class ProductService {
         },
       );
       Map obj = response.data;
-    } on Exception catch (err) {
-      print(err);
+      return true;
+    } on Exception catch (_) {
+      return false;
     }
   }
 

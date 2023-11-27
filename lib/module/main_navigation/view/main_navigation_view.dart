@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import '../../../core.dart';
-import '../bloc/main_navigation_bloc.dart';
-import '../event/main_navigation_event.dart';
-import '../state/main_navigation_state.dart';
 
 class MainNavigationView extends StatefulWidget {
   const MainNavigationView({Key? key}) : super(key: key);
