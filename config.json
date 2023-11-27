@@ -1,0 +1,30 @@
+{
+    "modules": [
+        "login",
+        "dashboard",
+        "product_list",
+        "product_form",
+        "main_navigation",
+        "order",
+        "checkout",
+        "profile",
+        "pos_table",
+        "pos_dine_in",
+        "pos_take_away",
+        "pos_take_away_cubit",
+        "disscount_list",
+        "disscount_form",
+        "report",
+        "order_detail",
+        "table"
+    ],
+    "module_directory_name": "module",
+    "experimental_mode": false,
+    "learning_mode": false,
+    "unfreezed": true,
+    "use_cubit": true,
+    "ignore_core_generator_for_directories": [
+        "lib/model",
+        "lib/models"
+    ]
+}
